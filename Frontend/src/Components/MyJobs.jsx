@@ -12,7 +12,24 @@ function MyJobs() {
     setLoading(true);
     fetchMyJobs(localStorage.getItem('recruito_token')).then(setJobs).finally(() => setLoading(false));
   };
-  useEffect(load, []);
+  useEffect(() => {
+  let cancelled = false;
+
+  fetchMyJobs(localStorage.getItem('recruito_token'))
+    .then((data) => {
+      if (!cancelled) setJobs(data);
+    })
+    .catch((err) => {
+      if (!cancelled) console.error('Failed to load jobs:', err);
+    })
+    .finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+
+  return () => {
+    cancelled = true;
+  };
+}, []);
 
   const handleDelete = async (id) => {
     await deleteJob(id, localStorage.getItem('recruito_token'));
