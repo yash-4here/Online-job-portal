@@ -29,13 +29,13 @@ function App() {
   return (
     <Routes>
       <Route
-  path="/employer/post-job"
-  element={
-    <ProtectedRoute role="EMPLOYER">
-      <PostJob />
-    </ProtectedRoute>
-  }
-/>
+          path="/employer/post-job"
+            element={
+              <ProtectedRoute role="EMPLOYER">
+                <PostJob />
+              </ProtectedRoute>
+            }
+      />
       <Route path="/" element={<Landing />} />
       <Route path="/employer/dashboard" element={<ProtectedRoute role="EMPLOYER"><EmployerDashboard /></ProtectedRoute>} />
       <Route path="/employer/jobs/:id/edit" element={<ProtectedRoute role="EMPLOYER"><PostJob /></ProtectedRoute>} />
