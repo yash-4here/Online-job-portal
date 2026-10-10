@@ -1,0 +1,14 @@
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+Frontend/node_modules/
+Frontend/dist/
+Frontend/dist-ssr/
+
+Backend/target/
+
+.vscode/
+.idea/

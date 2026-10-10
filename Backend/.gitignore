@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# VS Code
+.vscode/
+
+# Java compiled classes (in case any stray ones show up outside target/)
+*.class
+
+# macOS junk files
+.DS_Store
+
+# Logs
+*.log
+
+# Environment / secrets (if you later move JWT secret / DB creds out of application.properties)
+.env
